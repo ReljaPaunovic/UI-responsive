@@ -24,12 +24,10 @@
 .media-heading {
   margin-top: 5px;
 }
-.media-left img.media-object {
-  width: 300px;
-  height: 100px;
-  object-fit: cover;
-  object-position: center;
-  margin: 0;
+.media-left img.energy {
+  width: 149px;
+  height: 149px;
+  margin: 0 0 0 10px;
 }
 .media-body .data-list {
   list-style: none;
