@@ -23,7 +23,7 @@
 .media-heading {
   margin-top: 5px;
 }
-.media-left img {
+.media-left img.media-object {
   width: 300px;
   height: 100px;
   object-fit: cover;

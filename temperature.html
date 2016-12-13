@@ -20,6 +20,8 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <!-- Custom styles for this template -->
+    <script src="bower_components/seiyria-bootstrap-slider/dist/bootstrap-slider.min.js"></script>
+    <link href="bower_components/seiyria-bootstrap-slider/dist/css/bootstrap-slider.min.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -48,34 +50,12 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li><a href="#"><i class="glyphicon glyphicon-home"></i>Home</a></li>
-                <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="glyphicon glyphicon-calendar"></i> Rooms<i class="caret"></i></a>
-                <ul class="dropdown-menu">
-                    <li><a href="room.html">
-                        <div class="media">
-                            <div class="media-left">
-                                <img class="media-object" src="holder.js/150x50" alt="...">
-                            </div>
-                            <div class="media-body">
-                                <h4 class="media-heading">Room 1</h4>
-                                    description...
-                            </div>
-                        </div>
-                    </a></li>
-                    <li><a href="room.html">
-                        <div class="media">
-                            <div class="media-left">
-                                <img class="media-object" src="holder.js/150x50" alt="...">
-                            </div>
-                            <div class="media-body">
-                                <h4 class="media-heading">Room 2</h4>
-                                    description...
-                            </div>
-                        </div>
-                    </a></li>
-                </ul>
-                </li>
-                <li><a href="#">Sign out</a></li>
+                <li><a href="#"><i class="glyphicon glyphicon-home"></i> Temperature</a></li>
+
+                <li><a href="#"><i class="glyphicon glyphicon-home"></i> Lights</a></li>
+                <li><a href="#"><i class="glyphicon glyphicon-home"></i> Energy</a></li>
+                <li><a href="#"><i class="glyphicon glyphicon-home"></i> Locks</a></li>
+              <li class="pull-right"><a href="#">Sign out</a></li>
             </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -85,7 +65,7 @@
       <header class="header">
           <div class="col-md-12 col-sm-12">
             <div class="row">
-              <h1>Living room</h1>
+              <h1>Temperature</h1>
               <p class="lead"></p>
             </div>
           </div>
@@ -95,7 +75,7 @@
 
         <div class="row">
             <div class="col-md-12 col-sm-12">
-              <h2>Temperature</h2>
+              <h2>Living room</h2>
               <div class="row">
                 <div class="col-md-3">Current<br><span style="font-size: 2em">22.2</span>°C</div>
                 <div class="col-md-2">Target<button class="btn btn-primary pull-right"  data-toggle="modal" data-target="#tempModal">Set</button><br><span style="font-size: 2em">22</span>°C</div>
@@ -110,7 +90,10 @@
               <div id="temp"></div>
               <h2>Kitchen</h2>
               <div class="col-md-3">Current<br><span style="font-size: 2em">22.2</span>°C</div>
-              <div class="col-md-3">Target <button class="btn btn-default pull-right"  data-toggle="modal">-</button><input class="pull-right" type="range" min="15" max="30"><button class="btn btn-default pull-right">+</button><br><span style="font-size: 2em">22</span>°C</div>
+              <div class="col-md-3"><span style="font-size: 2em">22</span>°C<br>
+                <button class="btn btn-default pull-right" data-toggle="modal">-</button>
+                <input class="pull-right" style="width:60%; margin:0.7em" type="range" min="15" max="30">
+                <button class="btn btn-default pull-right">+</button></div>
               <ul class="nav nav-tabs">
                 <li class="active pull-right"><a href="#">30 days</a></li>
                 <li class="pull-right"><a href="#">7 days</a></li>
@@ -119,7 +102,13 @@
               <div id="temp2"></div>
               <h2>Bedroom</h2>
               <div class="col-md-3">Current<br><span style="font-size: 2em">22.2</span>°C</div>
-              <div class="col-md-2">Target <input type="range" min="15" max="30"><br><span style="font-size: 2em">22</span>°C</div>
+              <div class="col-md-1">Target <br>
+                <span style="font-size: 2em" id="temp1val">22</span>°C
+              </div>
+              <div class="col-md-3">
+                Adjust target temperature<br>
+                <input id="temp1" type="range" data-slider-id="temp1Slider" type="text" data-slider-min="10" data-slider-max="30" data-slider-step="0.2" data-slider-value="22" data-slider-handle="round">
+              </div><br>
               <ul class="nav nav-tabs">
                 <li class="active pull-right"><a href="#">30 days</a></li>
                 <li class="pull-right"><a href="#">7 days</a></li>
@@ -213,7 +202,12 @@
       var graph2d = new vis.Graph2d(container3, dataset, options);
       var graph2d = new vis.Graph2d(container4, dataset, options);
 
+      $('#temp1').slider({
 
+      });
+      $("#temp1").on("slide", function(slideEvt) {
+	$("#temp1val").text(slideEvt.value);
+});
     </script>
     </body>
 </html>
