@@ -36,7 +36,7 @@
 
   <body>
 
-    <nav class="navbar navbar-default" id="main-nav-top">
+    <nav class="navbar navbar-inverse" id="main-nav-top">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -76,12 +76,14 @@
         <div class="row">
             <div class="col-md-12 col-sm-12">
               <h2>Living room</h2>
-              <div class="row">
-                <div class="col-md-3">Current<br><span style="font-size: 2em">22.2</span>°C</div>
-                <div class="col-md-2">Target<button class="btn btn-primary pull-right"  data-toggle="modal" data-target="#tempModal">Set</button><br><span style="font-size: 2em">22</span>°C</div>
+              <div class="col-md-3">Current<br><span style="font-size: 2em">22.2</span>°C</div>
+              <div class="col-md-1">Target <br>
+                <span style="font-size: 2em" id="temp1val">22</span>°C
               </div>
-
-            </tr></table>
+              <div class="col-md-3">
+                Adjust target temperature<br>
+                <input id="stemp1" type="range" data-slider-id="temp1Slider" type="text" data-slider-min="10" data-slider-max="30" data-slider-step="0.2" data-slider-value="22" data-slider-handle="round">
+              </div><br>
               <ul class="nav nav-tabs">
                 <li class="active pull-right"><a href="#">30 days</a></li>
                 <li class="pull-right"><a href="#">7 days</a></li>
@@ -90,10 +92,13 @@
               <div id="temp"></div>
               <h2>Kitchen</h2>
               <div class="col-md-3">Current<br><span style="font-size: 2em">22.2</span>°C</div>
-              <div class="col-md-3"><span style="font-size: 2em">22</span>°C<br>
-                <button class="btn btn-default pull-right" data-toggle="modal">-</button>
-                <input class="pull-right" style="width:60%; margin:0.7em" type="range" min="15" max="30">
-                <button class="btn btn-default pull-right">+</button></div>
+              <div class="col-md-1">Target <br>
+                <span style="font-size: 2em" id="temp2val">22</span>°C
+              </div>
+              <div class="col-md-3">
+                Adjust target temperature<br>
+                <input id="stemp2" type="range" data-slider-id="temp2Slider" type="text" data-slider-min="10" data-slider-max="30" data-slider-step="0.2" data-slider-value="22" data-slider-handle="round">
+              </div><br>
               <ul class="nav nav-tabs">
                 <li class="active pull-right"><a href="#">30 days</a></li>
                 <li class="pull-right"><a href="#">7 days</a></li>
@@ -103,11 +108,11 @@
               <h2>Bedroom</h2>
               <div class="col-md-3">Current<br><span style="font-size: 2em">22.2</span>°C</div>
               <div class="col-md-1">Target <br>
-                <span style="font-size: 2em" id="temp1val">22</span>°C
+                <span style="font-size: 2em" id="temp3val">22</span>°C
               </div>
               <div class="col-md-3">
                 Adjust target temperature<br>
-                <input id="temp1" type="range" data-slider-id="temp1Slider" type="text" data-slider-min="10" data-slider-max="30" data-slider-step="0.2" data-slider-value="22" data-slider-handle="round">
+                <input id="stemp3" type="range" data-slider-id="temp3Slider" type="text" data-slider-min="10" data-slider-max="30" data-slider-step="0.2" data-slider-value="22" data-slider-handle="round">
               </div><br>
               <ul class="nav nav-tabs">
                 <li class="active pull-right"><a href="#">30 days</a></li>
@@ -115,15 +120,6 @@
                 <li class="pull-right"><a href="#">24 hours</a></li>
               </ul>
               <div id="temp3"></div>
-              <h2>Bedroom 2</h2>
-              <ul class="nav nav-tabs">
-                <li class="active pull-right"><a href="#">30 days</a></li>
-                <li class="pull-right"><a href="#">7 days</a></li>
-                <li class="pull-right"><a href="#">24 hours</a></li>
-              </ul>
-              <div id="temp4"></div>
-            </div>
-          </div>
 
 
 
@@ -197,17 +193,21 @@
       var graph2d = new vis.Graph2d(container, dataset, options);
       var container2 = document.getElementById('temp2');
       var container3 = document.getElementById('temp3');
-      var container4 = document.getElementById('temp4');
       var graph2d = new vis.Graph2d(container2, dataset, options);
       var graph2d = new vis.Graph2d(container3, dataset, options);
-      var graph2d = new vis.Graph2d(container4, dataset, options);
 
-      $('#temp1').slider({
-
+      $('#stemp1').slider();
+      $("#stemp1").on("slide", function(slideEvt) {
+      	$("#temp1val").text(slideEvt.value);
       });
-      $("#temp1").on("slide", function(slideEvt) {
-	$("#temp1val").text(slideEvt.value);
-});
+      $('#stemp2').slider();
+      $("#stemp2").on("slide", function(slideEvt) {
+      	$("#temp2val").text(slideEvt.value);
+      });
+      $('#stemp3').slider();
+      $("#stemp3").on("slide", function(slideEvt) {
+      	$("#temp3val").text(slideEvt.value);
+      });
     </script>
     </body>
 </html>

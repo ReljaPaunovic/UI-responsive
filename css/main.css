@@ -24,6 +24,11 @@
 .media-heading {
   margin-top: 5px;
 }
+.media-left img {
+  width: 60px;
+  height: 60px;
+  margin: 6px 0 0 6px;
+}
 .media-left img.energy {
   width: 149px;
   height: 149px;
