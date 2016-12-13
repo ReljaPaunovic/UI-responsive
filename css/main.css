@@ -7,7 +7,7 @@
 }
 .media-link {
   display:block;
-  background-color: #eee;
+  background-color: #bbb;
   /*border: 2px solid #fff;*/
 }
 .media-link {
@@ -19,6 +19,7 @@
 }
 .media a {
   color: black;
+  border: 1px solid #ddd;
 }
 .media-heading {
   margin-top: 5px;
@@ -36,6 +37,7 @@
 }
 .media-body {
   padding:12px;
+  background-color: white;
 }
 .temp {
   font-size: 48px;
