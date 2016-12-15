@@ -58,7 +58,9 @@
   display:inline-block;
   margin-top:12px;
 }
-
+#stemp {
+  width:50%;
+}
 @media (max-width: 500px) {
   .media-body, .media-left, .media-right {
     display: block;
