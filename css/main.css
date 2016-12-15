@@ -73,7 +73,7 @@
     background-color: #666;
     background-image: none;
 }
-input[type=range] {
+input.tempSlider {
   width:180px;
   display:inline;
 }

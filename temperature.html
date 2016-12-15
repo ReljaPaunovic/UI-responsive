@@ -14,7 +14,6 @@
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="bower_components/holderjs/holder.min.js"></script>
     <!-- Latest compiled and minified JavaScript -->
@@ -80,9 +79,11 @@
               <div class="col-md-1">Target <br>
                 <span style="font-size: 2em" id="temp1val">22</span>°C
               </div>
-              <div class="col-md-3">
+              <div class="col-md-4">
                 Adjust target temperature<br>
-                <input id="stemp1" type="range" data-slider-id="temp1Slider" type="text" data-slider-min="10" data-slider-max="30" data-slider-step="0.2" data-slider-value="22" data-slider-handle="round">
+                <button id="minus1" class="btn btn-default">&minus;</button>
+                <input class="tempSlider" id="stemp1" type="range"  min="10" max="30" step="0.2" value="22">
+                <button id="plus1" class="btn btn-default">&plus;</button>
               </div><br>
               <ul class="nav nav-tabs">
                 <li class="active pull-right"><a href="#">30 days</a></li>
@@ -95,9 +96,11 @@
               <div class="col-md-1">Target <br>
                 <span style="font-size: 2em" id="temp2val">22</span>°C
               </div>
-              <div class="col-md-3">
+              <div class="col-md-4">
                 Adjust target temperature<br>
-                <input id="stemp2" type="range" data-slider-id="temp2Slider" type="text" data-slider-min="10" data-slider-max="30" data-slider-step="0.2" data-slider-value="22" data-slider-handle="round">
+                <button id="minus2" class="btn btn-default">&minus;</button>
+                <input class="tempSlider" id="stemp2" type="range"  min="10" max="30" step="0.2" value="22">
+                <button id="plus2" class="btn btn-default">&plus;</button>
               </div><br>
               <ul class="nav nav-tabs">
                 <li class="active pull-right"><a href="#">30 days</a></li>
@@ -110,9 +113,11 @@
               <div class="col-md-1">Target <br>
                 <span style="font-size: 2em" id="temp3val">22</span>°C
               </div>
-              <div class="col-md-3">
+              <div class="col-md-4">
                 Adjust target temperature<br>
-                <input id="stemp3" type="range" data-slider-id="temp3Slider" type="text" data-slider-min="10" data-slider-max="30" data-slider-step="0.2" data-slider-value="22" data-slider-handle="round">
+                <button id="minus3" class="btn btn-default">&minus;</button>
+                <input class="tempSlider" id="stemp3" type="range" min="10" max="30" step="0.2" value="22">
+                <button id="plus3" class="btn btn-default">&plus;</button>
               </div><br>
               <ul class="nav nav-tabs">
                 <li class="active pull-right"><a href="#">30 days</a></li>
@@ -196,18 +201,42 @@
       var graph2d = new vis.Graph2d(container2, dataset, options);
       var graph2d = new vis.Graph2d(container3, dataset, options);
 
-      $('#stemp1').slider();
-      $("#stemp1").on("slide", function(slideEvt) {
-      	$("#temp1val").text(slideEvt.value);
+      $('#stemp1').on("input", function(e) {
+      	$("#temp1val").text(this.value);
       });
-      $('#stemp2').slider();
-      $("#stemp2").on("slide", function(slideEvt) {
-      	$("#temp2val").text(slideEvt.value);
+      $('#plus1').on("click", function(e) {
+      	$("#stemp1")[0].value = parseInt($("#stemp1")[0].value)+0.2;
+        $("#temp1val").text($("#stemp1")[0].value);
       });
-      $('#stemp3').slider();
-      $("#stemp3").on("slide", function(slideEvt) {
-      	$("#temp3val").text(slideEvt.value);
+      $('#minus1').on("click", function(e) {
+      	$("#stemp1")[0].value = parseInt($("#stemp1")[0].value) - 0.2;
+        $("#temp1val").text($("#stemp1")[0].value);
       });
+
+      $('#stemp2').on("input", function(e) {
+      	$("#temp2val").text(this.value);
+      });
+      $('#plus2').on("click", function(e) {
+      	$("#stemp2")[0].value = parseInt($("#stemp2")[0].value)+0.2;
+        $("#temp2val").text($("#stemp2")[0].value);
+      });
+      $('#minus2').on("click", function(e) {
+      	$("#stemp2")[0].value = parseInt($("#stemp2")[0].value) - 0.2;
+        $("#temp2val").text($("#stemp2")[0].value);
+      });
+
+      $('#stemp3').on("input", function(e) {
+      	$("#temp3val").text(this.value);
+      });
+      $('#plus3').on("click", function(e) {
+      	$("#stemp3")[0].value = parseInt($("#stemp3")[0].value)+0.2;
+        $("#temp3val").text($("#stemp3")[0].value);
+      });
+      $('#minus3').on("click", function(e) {
+      	$("#stemp3")[0].value = parseInt($("#stemp3")[0].value) - 0.2;
+        $("#temp3val").text($("#stemp3")[0].value);
+      });
+
     </script>
     </body>
 </html>
