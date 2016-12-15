@@ -67,3 +67,8 @@
     color: #fff;
     background-color: #9d9d9d;
 }
+.navbar-inverse .navbar-nav>li.active>a {
+    color: #fff;
+    background-color: #666;
+    background-image: none;
+}
