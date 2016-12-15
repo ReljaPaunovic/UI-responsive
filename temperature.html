@@ -84,6 +84,7 @@
                 <button id="minus1" class="btn btn-default">&minus;</button>
                 <input class="tempSlider" id="stemp1" type="range"  min="10" max="30" step="0.2" value="22">
                 <button id="plus1" class="btn btn-default">&plus;</button>
+                <button class="btn btn-default">Reset</button>
               </div><br>
               <ul class="nav nav-tabs">
                 <li class="active pull-right"><a href="#">30 days</a></li>
@@ -101,6 +102,7 @@
                 <button id="minus2" class="btn btn-default">&minus;</button>
                 <input class="tempSlider" id="stemp2" type="range"  min="10" max="30" step="0.2" value="22">
                 <button id="plus2" class="btn btn-default">&plus;</button>
+                <button class="btn btn-default">Reset</button>
               </div><br>
               <ul class="nav nav-tabs">
                 <li class="active pull-right"><a href="#">30 days</a></li>
@@ -109,7 +111,7 @@
               </ul>
               <div id="temp2"></div>
               <h2>Bedroom</h2>
-              <div class="col-md-3">Current<br><span style="font-size: 2em">22.2</span>°C</div>
+              <div class="col-md-3">Current<br><span style="font-size: 2em">-</span>°C</div>
               <div class="col-md-1">Target <br>
                 <span style="font-size: 2em" id="temp3val">22</span>°C
               </div>
@@ -118,13 +120,15 @@
                 <button id="minus3" class="btn btn-default">&minus;</button>
                 <input class="tempSlider" id="stemp3" type="range" min="10" max="30" step="0.2" value="22">
                 <button id="plus3" class="btn btn-default">&plus;</button>
+                <button class="btn btn-default">Reset</button>
               </div><br>
-              <ul class="nav nav-tabs">
+              <!-- ul class="nav nav-tabs">
                 <li class="active pull-right"><a href="#">30 days</a></li>
                 <li class="pull-right"><a href="#">7 days</a></li>
                 <li class="pull-right"><a href="#">24 hours</a></li>
-              </ul>
-              <div id="temp3"></div>
+              </ul --><div class="row"><br></div>
+              <div class="alert alert-danger"><h4>Help!</h4>Could not get data from the temperature sensor for <b>Bedroom</b>. Check that the sensor is connected and in order.<br>Contact info@smarthouse.com or call 999-888-7777 for assistance.</div>
+              <!-- div id="temp3"></div -->
 
 
 
